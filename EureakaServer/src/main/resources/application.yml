@@ -13,9 +13,9 @@ eureka:  client:    register-with-eureka: false
 zuul:
   prefix: /api
   routes: 
-    Condition:
-      path: /**
+    Conditionssss:
+      path: /condition/**
       url: http://localhost:8082
     Flip:
-      path: /**
+      path: /flips/**
       url: http://localhost:8081
