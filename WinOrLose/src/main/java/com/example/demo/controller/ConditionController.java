@@ -23,6 +23,7 @@ public class ConditionController {
 		if(num == 1) {
 			return new ResponseEntity<String>("Heads", HttpStatus.OK);
 		} 
+		
 		return new ResponseEntity<String>("Tails", HttpStatus.OK);
 	}
 	
