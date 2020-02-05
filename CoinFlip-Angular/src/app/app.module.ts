@@ -3,18 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { CoinFlipComponent } from './coin-flip/coin-flip.component'
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CoinFlipComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
