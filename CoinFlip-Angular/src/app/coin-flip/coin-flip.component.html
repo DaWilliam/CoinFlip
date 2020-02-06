@@ -1,12 +1,13 @@
 
 <div class="coin-page">
-    <div class="coin-page-title">Tough Decision? Flip a Coin!<div>
-    <div *ngIf="answer == 'heads'; else tails">        
-        <img src="http://clipart-library.com/images_k/quarter-transparent-background/quarter-transparent-background-15.png"/>   
+    <div class="coin-page-title">Tough Decision? Flip a Coin!</div>
+    <div>
+        <div [ngSwitch]="answer" >        
+            <img *ngSwitchCase="'Heads'" class="coin-page-image" src="http://clipart-library.com/images_k/quarter-transparent-background/quarter-transparent-background-15.png"/>   
+            <img *ngSwitchCase="'Tails'" class="coin-page-image" src="http://clipart-library.com/images_k/quarter-transparent-background/quarter-transparent-background-22.png"/>
+            <img *ngSwitchCase="'Flipping'" class="flipping-coin" src="http://clipart-library.com/images_k/quarter-transparent-background/quarter-transparent-background-22.png"/>
+            <img *ngSwitchDefault class="coin-page-image" src="http://clipart-library.com/images_k/quarter-transparent-background/quarter-transparent-background-15.png">
     </div>
-    <ng-template #tails>
-        <img src="http://clipart-library.com/images_k/quarter-transparent-background/quarter-transparent-background-22.png"/>
-    </ng-template>
-
-    <button (click)="flip()">Flip</button>
+    <button class="coin-page-button" (click)="flip()">Flip</button>
+    
 </div>

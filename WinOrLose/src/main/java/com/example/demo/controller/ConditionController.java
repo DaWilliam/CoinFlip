@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/conditions")
 public class ConditionController {
@@ -19,10 +19,9 @@ public class ConditionController {
 	private RestTemplate rt;
 	
 	@GetMapping("/answer/{flipNum}")
-	public ResponseEntity<String> answer(@PathVariable("flipNum") Integer flipNums) {
-		Integer num = rt.getForObject("http://localhost:8081/flips/flip", Integer.class);
-		ResponseEntity<Integer> number = rt.getForEntity("http://localhost:8081/flips/flip", Integer.class);
-		if(num == 1) {
+	public ResponseEntity<?> answer(@PathVariable("flipNum") Integer flipNums) {
+
+		if(flipNums == 1) {
 			return new ResponseEntity<String>("Heads", HttpStatus.OK);
 		} 
 		

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoinFlipServiceService } from '../coin-flip-service.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-coin-flip',
@@ -9,6 +10,7 @@ import { CoinFlipServiceService } from '../coin-flip-service.service';
 export class CoinFlipComponent implements OnInit {
 
   answer : String
+  coin : Number
 
   constructor(private coinFlipServ : CoinFlipServiceService) { }
 
@@ -17,13 +19,18 @@ export class CoinFlipComponent implements OnInit {
   }
 
   flip() {
-    let coin : Number
-    this.coinFlipServ.getCoin().subscribe(
-        (data) => { return data }, 
-        (complete) => {coin = complete}
-    )
-    console.log(coin)
-    //this.answer = this.coinFlipServ.getAnswer(coin) 
-  }
 
+      this.answer = "Flipping"
+      setTimeout(() => {
+            this.coinFlipServ.getCoin().subscribe(
+              (data : Number) => { 
+                  this.coinFlipServ.getAnswer(data).subscribe(
+                      (data2 : String) => { console.log(data2); this.answer = data2 }
+                  ) 
+              }
+          )
+      }, 2100)
+
+      
+  }
 }

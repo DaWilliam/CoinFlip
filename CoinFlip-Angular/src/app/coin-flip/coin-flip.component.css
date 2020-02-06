@@ -3,8 +3,9 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    justify-content: center;
-    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .coin-page .coin-page-title {
@@ -15,4 +16,51 @@
 .coin-page .coin-page-image {
     height: 600px;
     width: 600px;
+}
+
+.coin-page .flipping-coin {
+    height: 600px;
+    width: 600px;
+    animation-name: "coin-flip";
+    animation-duration: .3s;
+    animation-play-state: running;
+    animation-iteration-count: 10;
+}
+
+.coin-page .coin-page-button {
+    font-size: 40px;
+    height: 100px;
+    width: 200px;
+}
+
+@keyframes coin-flip {
+    0% {
+        width: 0%;
+        content:url("http://clipart-library.com/images_k/quarter-transparent-background/quarter-transparent-background-15.png");
+    }
+    12% {
+        width: 50%;
+    }
+    24% {
+        width: 100%;                
+    }
+    36% {
+        width: 50%;
+    }
+    48% {
+        width: 0%;
+        content:url("http://clipart-library.com/images_k/quarter-transparent-background/quarter-transparent-background-22.png");
+    }
+    60% {
+        width: 50%;
+    }
+    72% {
+        width: 100%;                
+    }
+    84% {
+        width: 50%;
+    }
+    100% {
+        width: 0%;
+    }
 }
